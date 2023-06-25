@@ -1,12 +1,12 @@
 import ContactList from './ContactList';
 import ContactForm from './ContactForm';
 import Filter from './Filter';
-import { deleteContact } from '../redux/contacts/slice';
+// import { deleteContact } from '../redux/contacts/slice';
 import { updateFilter } from '../redux/filter/slice';
 import Notiflix from 'notiflix';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import {fetchContacts, addContact} from "../redux/operations";
+import {fetchContacts, addContact, deleteContact} from "../redux/operations";
 
 const App = () => {
   const contacts = useSelector(state => state.contacts.items);
@@ -49,6 +49,7 @@ const App = () => {
   //Borrar contacto
   const handleDeleteContacts = id => {
     dispatch(deleteContact(id));
+    // dispatch(fetchContacts());
   };
 
   return (
